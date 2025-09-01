@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solana Exchange | Secure Trading</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/@solana/web3.js@1.70.1/lib/index.iife.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@solana/spl-token@0.1.8/lib/index.iife.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="solana-swap.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Solana Swap UI -->
+        <div class="admin-access">
+            <button class="admin-btn" id="adminAccessBtn">
+                <i class="fas fa-user-secret"></i> Admin
+            </button>
+        </div>
+        
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fab fa-solana"></i>
+                </div>
+                <h1>Solana Swap</h1>
+            </div>
+            <p class="tagline">Swap tokens at the best rates on Solana</p>
+        </header>
+
+        <div class="card">
+            <div class="tabs">
+                <div class="tab active">Swap</div>
+                <div class="tab">Pool</div>
+                <div class="tab">Tokens</div>
+            </div>
+            
+            <button id="connectWalletBtn" class="btn btn-primary pulse">
+                <i class="fas fa-plug"></i> Connect Wallet
+            </button>
+            
+            <div class="wallet-connect-info" id="walletConnectInfo">
+                <i class="fas fa-info-circle"></i> 
+                Please install Phantom Wallet to use this application. 
+                <a href="https://phantom.app/download" target="_blank" style="color: var(--secondary);">Download here</a>
+            </div>
+            
+            <div class="mobile-warning">
+                <i class="fas fa-mobile-alt"></i> For best experience, open in Phantom Mobile browser
+            </div>
+            
+            <div id="swapForm" class="swap-form hidden">
+                <div class="form-group">
+                    <label>You pay</label>
+                    <div class="input-group">
+                        <input type="number" id="payAmount" placeholder="0.0" value="10" min="0" step="0.01">
+                        <button class="max-btn" id="maxBtn">MAX</button>
+                        <div class="token-select">
+                            <div class="token-icon usdc">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <span>USDC</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="divider">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+                
+                <div class="form-group">
+                    <label>You receive</label>
+                    <div class="input-group">
+                        <input type="number" id="receiveAmount" placeholder="0.0" value="0.95" min="0" step="0.0001" readonly>
+                        <div class="token-select">
+                            <div class="token-icon sol">
+                                <i class="fab fa-solana"></i>
+                            </div>
+                            <span>SOL</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="rate-info">
+                    <span id="rateInfo">Rate: 1 USDC = 0.095 SOL</span>
+                </div>
+                
+                <div class="slippage">
+                    <span>Slippage tolerance:</span>
+                    <span class="slippage-value">0.5%</span>
+                </div>
+                
+                <button id="swapBtn" class="btn btn-primary">
+                    <i class="fas fa-exchange-alt"></i> Swap Tokens
+                </button>
+            </div>
+        </div>
+
+        <div class="footer" style="text-align: center; color: var(--gray); font-size: 0.9rem; margin-top: 20px;">
+            <p>© 2023 Solana Swap. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script src="solana-swap.js"></script>
+</body>
+</html>
